@@ -39,7 +39,7 @@ module OmniAuth
         access_token.options[:mode] = :query
         @raw_info ||= access_token.get('/api/v1/user', {
           headers: {
-            'X-Client-ID' => ENV['CLIENT_ID'],
+            'X-Client-ID' => access_token.client.id,
             'X-Access-Token' => access_token.token
           }
         }).parsed
