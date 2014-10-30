@@ -4,12 +4,10 @@ module OmniAuth
   module Strategies
     class Wunderlist < OmniAuth::Strategies::OAuth2
       option :name, 'wunderlist'
-      option :provider_ignores_state, true
-
       option :client_options, {
         site: "https://a.wunderlist.com/api",
-        authorize_url: "https://provider.wunderlist.com/login/oauth/authorize",
-        token_url: "https://provider.wunderlist.com/login/oauth/access_token",
+        authorize_url: "https://www.wunderlist.com/oauth/authorize",
+        token_url: "https://www.wunderlist.com/oauth/access_token",
         connection_opts: {
           headers: {
             'Accept' => 'application/json',
@@ -19,7 +17,7 @@ module OmniAuth
       }
 
       def request_phase
-        redirect client.auth_code.authorize_url
+        super
       end
 
       uid { raw_info['id'] }
