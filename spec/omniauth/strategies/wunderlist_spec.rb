@@ -17,11 +17,11 @@ describe OmniAuth::Strategies::Wunderlist do
     end
 
     it "has correct authorize_url" do
-      subject.options.client_options.authorize_url.should eq("https://provider.wunderlist.com/login/oauth/authorize")
+      subject.options.client_options.authorize_url.should eq("https://www.wunderlist.com/oauth/authorize")
     end
 
     it "has correct token_url" do
-      subject.options.client_options.token_url.should eq("https://provider.wunderlist.com/login/oauth/access_token")
+      subject.options.client_options.token_url.should eq("https://www.wunderlist.com/oauth/access_token")
     end
   end
 end
